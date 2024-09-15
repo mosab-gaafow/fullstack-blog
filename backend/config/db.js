@@ -4,10 +4,7 @@ import chalk from "chalk";
 const connectDB = async()=>{
     try{
 
-        await mongoose.connect(dbURL, {
-            useNewUrlParser: true,
-            useUnifiedTopology: true
-        });
+        await mongoose.connect(dbURL);
         console.log(`${chalk.green.italic('Connected to the Database.')}`);
 
     }catch(e){
