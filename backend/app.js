@@ -19,7 +19,8 @@ const app = express();
 app.use(morgan("dev"));
 
 // CORS configuration
-const whiteList = ['http://localhost:5000', 'http://localhost:5173'];
+const whiteList = ['http://localhost:5000', 'http://localhost:5173', 'https://fullstack-blog-i2sa.onrender.com'];
+
 
 const corsOptions = {
     origin: function (origin, callback) {
@@ -57,7 +58,7 @@ if(process.env.NODE_ENV == 'production'){
     const __dirname = path.resolve();
     // mddlleware waaye, folders-ka static ga ah oo folder-keena ku jira ayuu so aqrinaa
     app.use(express.static(path.join(__dirname, '/frontend/dist')));
-
+    
     // wxii request oo dhan oo imaada
     app.get('*', (req,res) => {
         res.sendFile(path.resolve(__dirname, 'frontend', 'dist', 'index.html'))
